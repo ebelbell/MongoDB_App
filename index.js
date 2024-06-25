@@ -2,7 +2,7 @@ const express = require('express');
 // using Node.js
 const mongoose = require('mongoose');
 // import the product model 
-const Product = require('./models/product.model.js');
+const Product = require('./models/book.js');
 const app = express();
 
 // middleware
