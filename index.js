@@ -1,8 +1,7 @@
 const express = require('express');
 // using Node.js
 const mongoose = require('mongoose');
-// import the product model 
-const Product = require('./models/book.js');
+import book from './routes/book.js'
 const app = express();
 
 // middleware
@@ -18,9 +17,9 @@ app.get('/', (req, res) => {
     res.send('Hello World Update');
 });
 
-app.get('/api/products', async (req, res) => {
+app.get('/api/book', async (req, res) => {
     try {
-        const products = await Product.find({});
+        const books = await Book.find({});
         res.status(200).json(products);
     } catch (err)  {
         res.status(500).json({message: err.message});
@@ -28,7 +27,7 @@ app.get('/api/products', async (req, res) => {
 });
 
 // GET a product 
-app.get('/api/product/:id', async (req, res) => {  
+app.get('/api/book/:id', async (req, res) => {  
     try {
         const { id } = req.params;
         const product = await Product.findById(id); 

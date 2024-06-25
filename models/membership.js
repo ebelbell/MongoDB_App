@@ -19,10 +19,15 @@ const memberSchema = new mongoose.Schema(
             type: ObjectId, // MongoDB method of giving a unique ID
         },
 
+        username: {
+            type: String,
+            required: [true, "Please type your username"],
+        },
+
     },
 );
 
 // allow mongoDB to use this
 const member = mongoose.model("member", memberSchema);
 
-module.exports = memeber;
+module.exports = member;
