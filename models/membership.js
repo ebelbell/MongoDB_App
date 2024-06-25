@@ -1,6 +1,6 @@
 // this model is used to create products and save models into the database
-const { ObjectId } = require('mongodb');
-const mongoose = require('mongoose');
+import { ObjectId } from 'mongodb';
+import mongoose from 'mongoose';
 
 
 const memberSchema = new mongoose.Schema( 

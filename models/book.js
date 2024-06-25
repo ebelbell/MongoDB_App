@@ -1,5 +1,5 @@
 // this model is used to create products and save models into the database
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 
 const bookSchema = mongoose.Schema( 
@@ -31,4 +31,4 @@ const bookSchema = mongoose.Schema(
 // allow mongoDB to use this
 const book = mongoose.model("book", bookSchema);
 
-module.exports = book;
+export default book;

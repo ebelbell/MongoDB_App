@@ -1,40 +1,23 @@
-const express = require('express');
+// const express = require('express');
 // using Node.js
-const mongoose = require('mongoose');
-import book from './routes/book.js'
+// const mongoose = require('mongoose');
+import express from 'express';
+import mongoose from 'mongoose';
+import Book from './routes/book.js';
 const app = express();
 
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
+app.use('/book', Book); // book page that uses the book route to read a set of instructions depending on the HTTP methods 
 
 // ROUTES for products
-//app.use("api/products", productRoute);
+// app.use("api/products", productRoute);
 
 // reponse screen
 // client = request, response from the server = response
 app.get('/', (req, res) => {
     res.send('Hello World Update');
-});
-
-app.get('/api/book', async (req, res) => {
-    try {
-        const books = await Book.find({});
-        res.status(200).json(products);
-    } catch (err)  {
-        res.status(500).json({message: err.message});
-    }
-});
-
-// GET a product 
-app.get('/api/book/:id', async (req, res) => {  
-    try {
-        const { id } = req.params;
-        const product = await Product.findById(id); 
-        res.status(200).json(product);
-    } catch (err) {
-        res.status(500).json({message: err.message});
-    }
 });
 
 app.post('/api/products', async (req, res) => {
